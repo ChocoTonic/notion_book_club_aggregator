@@ -68,8 +68,6 @@ NOTION_DATABASE_ID=[NOTION_DATABASE_ID]
 
 [Unix-based Systems (Linux, macOS, etc.)](#unix-based-systems-linux-macos-etc)
 
-[Windows Systems](#windows-systems)
-
 ### Unix-based Systems (Linux, macOS, etc.)
 
 The below shell script will set up a virtual environment, install the required dependencies, and execute the program.
