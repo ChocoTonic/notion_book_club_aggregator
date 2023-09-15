@@ -1,0 +1,26 @@
+notion_book_club_aggregator/
+    .env_example
+    data/
+        ratings.csv
+    requirements.txt
+    src/
+        __init__.py
+        book.py
+        book_club_aggregator.py
+        csv_reader.py
+        main.py
+        member.py
+        normalizer.py
+        notion_database.py
+        rating.py
+    tests/
+        __init__.py
+        test_book.py
+        test_csv_reader.py
+        test_files/
+            test_ratings.csv
+        test_member.py
+        test_normalizer.py
+        test_notion_database.py
+        test_rating.py
+    venv_setup_run.sh
