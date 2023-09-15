@@ -16,6 +16,7 @@ class Normalizer:
         Returns:
             str: The normalized name.
         """
+        # an edge case to consider here is variable spacing between words or presence or absence of dash-like characters
         return titlecase(name.lower().strip())
 
 
