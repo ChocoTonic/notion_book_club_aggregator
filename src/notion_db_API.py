@@ -85,3 +85,28 @@ class NotionDBAPI:
             dict: The archived Notion page.
         """
         return await self.notion.pages.update(page_id=page_id, archived=True)
+
+    @staticmethod
+    async def fetch_paginated_results(api_call, **kwargs):
+        """
+        Fetch all paginated results from a given API call.
+
+        Args:
+            api_call (function): The API call to fetch results.
+            **kwargs: Arguments to be passed to the API call.
+
+        Returns:
+            List[Dict]: All results combined from paginated responses.
+        """
+        all_results = []
+        next_cursor = None
+
+        while True:
+            response = await api_call(start_cursor=next_cursor, **kwargs)
+            all_results.extend(response["results"])
+
+            next_cursor = response.get("next_cursor")
+            if not next_cursor:
+                break
+
+        return all_results

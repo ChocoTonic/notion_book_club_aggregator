@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.ERROR)
 
 class BookClubAggregator:
     """
-    A class for aggregating and displaying statistics for a book club's reading data.
+    A class for aggregating and displaying statistics for a book club's reading data from a CSV file.
     """
 
     def __init__(self, csv_data: List[Dict[str, Union[str, float]]]):

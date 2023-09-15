@@ -22,7 +22,7 @@ retry_decorator = retry(
 
 class BookManager:
     """
-    Manages the business logic for book entries.
+    Manages the business logic for book entries in the Notion database.
     """
 
     def __init__(self, api: NotionDBAPI):
@@ -39,8 +39,10 @@ class BookManager:
             Dict[str, Dict[str, Union[int, str]]]: A dictionary containing existing ratings.
         """
         try:
-            response = await self.notion.databases.query(database_id=self.database_id)
-            return await self.get_existing_book_entries(response["results"])
+            all_entries = await NotionDBAPI.fetch_paginated_results(
+                self.notion.databases.query, database_id=self.database_id
+            )
+            return await self.get_existing_book_entries(all_entries)
         except APIResponseError as error:
             logger.error(f"API Error ({error.code}): {error.body}")
             return {}
@@ -157,10 +159,11 @@ class BookManager:
         Delete all books from the Notion database.
         """
         try:
-            entries = await self.api.query_database()
-            for entry in entries["results"]:
+            all_entries = await NotionDBAPI.fetch_paginated_results(
+                self.api.query_database
+            )
+            for entry in all_entries:
                 await self.api.archive_page(entry["id"])
-
         except APIResponseError as error:
             logger.error(f"API Error ({error.code}): {error.body}")
         except Exception as error:
