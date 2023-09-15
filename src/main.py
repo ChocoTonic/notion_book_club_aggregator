@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
     # Add an optional argument to specify the input ratings file
     parser.add_argument(
-        "--ratings-file",
+        "--csv_path",
         help="Input ratings file (default: use hardcoded file at 'data/ratings.csv')",
         default=None,
     )
@@ -82,4 +82,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Call the main function with the ratings file argument
-    asyncio.run(main(args.ratings_file))
+    asyncio.run(main(args.csv_path))
