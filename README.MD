@@ -47,15 +47,15 @@ venv_setup_run.sh
 
 ## Getting Started
 
-Create a Notion integration to obtain a Notion Integration Secret Key.
+1. Create a Notion integration to obtain a Notion Integration Secret Key.
 
-Connect the integration to your Notion database by adding it as a connection in the database settings.
+1. Connect the integration to your Notion database by adding it as a connection in the database settings.
 
-Retrieve the database ID from the URL of the database you want to populate. The database ID is the string of characters found after `notion.so/` in the URL.
+1. Retrieve the database ID from the URL of the database you want to populate. The database ID is the string of characters found after `notion.so/` in the URL.
 
-Clone the repository or download the zip file, then extract its contents.
+1. Clone the repository or download the zip file, then extract its contents.
 
-Save the Notion Integration Secret Key and the database ID as environment variables or in a `.env` file. To do this, copy the contents of `.env.example` to a new `.env` file and replace the placeholder values with your actual data.
+1. Save the Notion Integration Secret Key and the database ID as environment variables or in a `.env` file. To do this, copy the contents of `.env.example` to a new `.env` file and replace the placeholder values with your actual data.
 
 Example of a `.env` file:
 
