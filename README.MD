@@ -99,7 +99,7 @@ Alternatively, it is possible to manually set up a virtual environment and insta
 
 ```bash
 python -m venv myenv
-source venv/bin/activate
+source myenv/bin/activate
 ```
 
 1. Install the necessary dependencies with:
