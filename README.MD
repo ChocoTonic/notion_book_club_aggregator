@@ -168,9 +168,9 @@ I wanted to challenge myself by creating a Typescript project from scratch. It t
 
 -   [Notion API Documentation](https://developers.notion.com/docs)
 
-## Further Improvements
+# Further Improvements
 
-# Testing
+## Testing
 
 ## Unit Tests
 
