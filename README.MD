@@ -92,13 +92,31 @@ If you want to use a different CSV file, run the program with the following comm
 python src/main.py --csv_path <path-to-csv-file>
 ```
 
+Alternatively, it is possible to manually set up a virtual environment and install the required dependencies.
+
+1. Navigate to the project root directory using the terminal.
+1. Set up a virtual environment by running:
+
+```bash
+python -m venv myenv
+source venv/bin/activate
+```
+
+1. Install the necessary dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+And proceed to run the program as described above.
+
 ### Windows Systems:
 
 1. Navigate to the project root directory using Command Prompt or PowerShell.
 1. Set up a virtual environment by running:
 
 ```bash
-python -m venv venv
+python -m venv myenv
 .\venv\Scripts\activate
 ```
 
