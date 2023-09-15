@@ -117,7 +117,7 @@ And proceed to run the program as described above.
 
 ```bash
 python -m venv myenv
-.\myenv\Scripts\activate
+\myenv\Scripts\activate
 ```
 
 1. Install the necessary dependencies with:
