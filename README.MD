@@ -110,38 +110,6 @@ pip install -r requirements.txt
 
 And proceed to run the program as described above.
 
-### Windows Systems:
-
-1. Navigate to the project root directory using Command Prompt or PowerShell.
-1. Set up a virtual environment by running:
-
-```bash
-python -m venv myenv
-.\venv\Scripts\activate
-```
-
-1. Install the necessary dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
-
-1. To modify the data that populates the database, make necessary changes to the CSV file located at data/ratings.csv.
-1. Run the program with the default CSV file using:
-
-```bash
-python src/main.py
-```
-
-1. If you want to use a different CSV file, run the program with the following command:
-
-```bash
-python src/main.py --csv_path <path-to-csv-file>
-```
-
-Please note: These instructions assume that Python and pip are already
-installed and set up on both Unix and Windows systems.
-
 ## Architecture
 
 The program is structured as a Python package with a `src` directory containing the source code and a `tests` directory containing the unit tests.
