@@ -4,7 +4,7 @@ This project updates a Notion database with book entries and their average ratin
 
 ## Demo
 
-<video src="demo/demo_notion_book_club_aggregator.mp4" controls title="Title"></video>
+![demo_gif](demo/demo_notion_book_club_aggregator.gif)
 
 ## File Structure
 
