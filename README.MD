@@ -4,7 +4,7 @@ This project updates a Notion database with book entries and their average ratin
 
 ## Demo
 
-![demo_gif](demo/demo_notion_book_club_aggregator.gif)
+![](demo/demo_notion_book_club_aggregator.gif)
 
 ## File Structure
 
@@ -67,6 +67,7 @@ NOTION_DATABASE_ID=[NOTION_DATABASE_ID]
 ## Usage
 
 [Unix-based Systems (Linux, macOS, etc.)](#unix-based-systems-linux-macos-etc)
+
 [Windows Systems](#windows-systems)
 
 ### Unix-based Systems (Linux, macOS, etc.)
