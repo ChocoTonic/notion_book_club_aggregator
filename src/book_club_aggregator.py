@@ -66,6 +66,7 @@ class BookClubAggregator:
         for book_title, book_stats in book_stats.items():
             avg_rating = book_stats["rating"]
             num_favorites = book_stats["favorites"]
+            num_least_favorites = book_stats["least_favorites"]
 
             # Calculate the available width for the book title
             title_width = min(
@@ -74,7 +75,7 @@ class BookClubAggregator:
 
             # Print with dynamically calculated width
             print(
-                f"{book_title[:title_width]:{title_width}}:\t{avg_rating} stars,\t{num_favorites} favorites"
+                f"{book_title[:title_width]:{title_width}}:\t{avg_rating} stars,\t{num_favorites} favorites,\t{num_least_favorites} least favorites"
             )
 
     def aggregate_book_stats(self) -> Dict[str, Dict[str, Union[float, int]]]:
@@ -88,5 +89,11 @@ class BookClubAggregator:
         for book_name, book in self.books.items():
             avg_rating = round(book.average_rating(), 1)
             num_favorites = book.count_favorites()
-            book_stats[book_name] = {"rating": avg_rating, "favorites": num_favorites}
+            num_least_favorites = book.count_least_favorites()
+
+            book_stats[book_name] = {
+                "rating": avg_rating,
+                "favorites": num_favorites,
+                "least_favorites": num_least_favorites,
+            }
         return book_stats

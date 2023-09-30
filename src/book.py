@@ -42,6 +42,15 @@ class Book:
         """
         return sum(1 for rating in self.ratings.values() if rating.num_stars == 5)
 
+    def count_least_favorites(self) -> int:
+        """
+        Counts and returns the number of ratings that are favorites (score of 0).
+
+        Returns:
+            int: The number of favorite ratings for the book.
+        """
+        return sum(1 for rating in self.ratings.values() if rating.num_stars == 0)
+
     def __repr__(self):
         return f"Book({self.title})"
 

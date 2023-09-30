@@ -73,6 +73,7 @@ class BookManager:
                 "pageId": entry["id"],
                 "rating": entry["properties"]["Rating"]["number"],
                 "favorites": entry["properties"]["Favorites"]["number"],
+                "least_favorites": entry["properties"]["Least Favorites"]["number"],
             }
         return existing_book_entries
 
@@ -94,22 +95,20 @@ class BookManager:
             if book_title in existing_ratings:
                 existing_entry = existing_ratings[book_title]
 
-                new_average_rating = book_stats["rating"]
-                new_favorites = book_stats["favorites"]
-                existing_average_rating = existing_entry["rating"]
-                existing_favorites = existing_entry["favorites"]
+                differences = [
+                    book_stats["rating"] != existing_entry.get("rating", 0),
+                    book_stats["favorites"] != existing_entry.get("favorites", 0),
+                    book_stats["least_favorites"]
+                    != existing_entry.get("least_favorites", 0),
+                ]
 
-                if (
-                    new_average_rating != existing_average_rating
-                    or new_favorites != existing_favorites
-                ):
-                    updated_entry = await self.get_properties(
-                        {
-                            **book_stats,
-                            "Book Title": book_title,
-                            "pageId": existing_entry["pageId"],
-                        }
-                    )
+                if any(differences):
+                    updated_entry = {
+                        **book_stats,
+                        "book": book_title,
+                        "pageId": existing_entry["pageId"],
+                    }
+
                     books_to_update.append(updated_entry)
             else:
                 new_entry = {**book_stats, "book": book_title}
@@ -146,7 +145,8 @@ class BookManager:
         """
         try:
             return await self.api.update_page(
-                updated_book_entry["pageId"], self.get_properties(updated_book_entry)
+                updated_book_entry["pageId"],
+                await self.get_properties(updated_book_entry),
             )
         except APIResponseError as error:
             logger.error(f"API Error ({error.code}): {error.body}")
@@ -185,6 +185,7 @@ class BookManager:
             "Book Title": {"title": [{"text": {"content": book_entry["book"]}}]},
             "Rating": {"number": book_entry["rating"]},
             "Favorites": {"number": book_entry["favorites"]},
+            "Least Favorites": {"number": book_entry["least_favorites"]},
         }
 
 
